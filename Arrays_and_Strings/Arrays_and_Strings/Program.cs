@@ -10,6 +10,12 @@ namespace Arrays_and_Strings
     {
         static void Main(string[] args)
         {
+            int[] arr = { 8, 7, 2, 5, 3, 1 };
+            int sum = 10;
+
+            ArrayImplementations.FindPairForGivenSumArray(arr, sum);
+
+            Console.ReadKey();
         }
     }
 }
