@@ -81,6 +81,63 @@ namespace Arrays_and_Strings
             return isMonotonic;
         }
 
+        public static int[] SmallestDifferenceofAnArray(int[] arr1)
+        {
+            int[] result = new int[0];
+            Array.Sort(arr1);
+            int diff = arr1[1] - arr1[0];// = int.MaxValue;//i don't think we need to initialize to max or anything
+            result = new int[2] { arr1[1], arr1[0] };
+
+            if (arr1.Length > 0)
+            {
+                for (int i = 2; i < arr1.Length; i++)
+                { 
+                    int currentdiff = arr1[i] - arr1[i - 1];
+
+                    if (currentdiff < diff)
+                    {
+                        result = new int[2] { arr1[i], arr1[i - 1] };
+                        diff = currentdiff;
+                    }
+                }
+            }
+            return result;
+        }
+
+        public static int[] SmallestDifferenceofArrays(int[] arr1, int[] arr2)
+        {
+            int[] result = new int[0];
+            Array.Sort(arr1);
+            Array.Sort(arr2);
+            int diff = int.MaxValue;
+            int currentdiff = 0;
+            if (arr1.Length > 0 && arr1.Length > 0)
+            {
+                for (int i = 0; i < arr1.Length; i++)
+                {
+                    for (int j = 0; j < arr2.Length; j++)
+                    {
+                        if (arr1[i] < arr2[j])
+                        {
+                            currentdiff = arr2[j] - arr1[i];
+                        }
+                        else
+                        {
+                            currentdiff = arr1[i] - arr2[j];
+                        }
+
+                        if (currentdiff < diff)
+                        {
+                            result = new int[2] { arr1[i], arr2[j] };
+                            diff = currentdiff;
+                        }
+
+                    }
+                }
+            }
+            return result;
+        }
+
     }
 }
 
