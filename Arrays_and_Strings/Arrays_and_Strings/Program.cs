@@ -44,6 +44,18 @@ namespace Arrays_and_Strings
             }
             Console.WriteLine("The smallest difference of two arrays is: " + sbSmallestDifferenceofArrays.ToString());
 
+            int?[] subArraySortResult = ArrayImplementations.SubArraySort(new int[] { 2, 6, 4, 8, 10, 11, 9 });
+            StringBuilder sbSubArraySort = new StringBuilder();
+            String separatorForSubArraySort = "";
+            foreach (var item in subArraySortResult)
+            {
+                sbSubArraySort.Append(separatorForSubArraySort);
+                sbSubArraySort.Append(item.ToString());
+                separatorForSubArraySort = ",";
+            }
+            Console.WriteLine("The Sub Array Sort starting and ending indexes are: " + sbSubArraySort.ToString());
+
+            List<List<int>> subsetRecursive = ArrayImplementations.Subset(new int[] { 1, 2, 3});
 
             Console.ReadKey();
         }

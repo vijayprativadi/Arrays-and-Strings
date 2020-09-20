@@ -138,6 +138,50 @@ namespace Arrays_and_Strings
             return result;
         }
 
+        public static int?[]SubArraySort(int[] arr)
+        {
+            int? start = null;
+            int? end = null;
+
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                if (arr[i + 1] < arr[i] && start == null)
+                {
+                    start = i;
+
+                }
+
+                if (arr[i + 1] < arr[i] && start != null)
+                {
+                    end = i + 1;
+                }
+            }
+
+            return new int?[] { start, end };
+        }
+
+        public static List<List<int>> Subset(int[] arr)
+        {
+            List<List<int>> result = new List<List<int>>();
+
+            GetAllList(arr, new List<int>(), result, 0);
+
+            return result;
+        }
+
+        public static void GetAllList(int[] arr, List<int> build, List<List<int>> result, int startIndex)
+        {
+            result.Add(build);
+
+            for (int i = startIndex; i < arr.Length; i++)
+            {
+                var newItem = new List<int>(build);
+                newItem.Add(arr[i]);
+
+                GetAllList(arr, newItem, result, i + 1);
+            }
+        }
+
     }
 }
 
