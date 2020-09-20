@@ -182,6 +182,28 @@ namespace Arrays_and_Strings
             }
         }
 
+        public static int SubarraySum(int[] nums, int k)
+        {
+            if (nums.Length == 0) return 0;
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            map.Add(0, 1);
+            int result = 0;
+            int sum = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                sum += nums[i];
+                if (map.ContainsKey(sum - k))
+                    result += map[sum - k];
+                if (map.ContainsKey(sum))
+                    map[sum]++;
+                else
+                    map.Add(sum, 1);
+
+
+            }
+            return result;
+        }
+
     }
 }
 

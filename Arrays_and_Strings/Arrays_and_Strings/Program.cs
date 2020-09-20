@@ -13,14 +13,14 @@ namespace Arrays_and_Strings
             //Declare Variables/Constants
 
             int[] arr = { 8, 7, 2, 5, 3, 1 };
-            int[] seq = { 7, 5, 1};
+            int[] seq = { 7, 5, 1 };
             int sum = 10;
 
             ArrayImplementations.FindPairForGivenSumArray(arr, sum);
 
             Console.WriteLine("Is Sequence Valid: " + ArrayImplementations.ValidateSequence(arr, seq));
 
-            Console.WriteLine("Is Monotonic Array: " + ArrayImplementations.MonotonicArray(new int[] { 1, 2, 3, 0}));
+            Console.WriteLine("Is Monotonic Array: " + ArrayImplementations.MonotonicArray(new int[] { 1, 2, 3, 0 }));
 
             int[] smallestDifferenceResult = ArrayImplementations.SmallestDifferenceofAnArray(new int[] { 100, 5, 10, 20, 28, 14 });
             StringBuilder sbSmallestDifference = new StringBuilder();
@@ -55,7 +55,9 @@ namespace Arrays_and_Strings
             }
             Console.WriteLine("The Sub Array Sort starting and ending indexes are: " + sbSubArraySort.ToString());
 
-            List<List<int>> subsetRecursive = ArrayImplementations.Subset(new int[] { 1, 2, 3});
+            List<List<int>> subsetRecursive = ArrayImplementations.Subset(new int[] { 1, 2, 3 });
+
+            int subArraySum = ArrayImplementations.SubarraySum(new int[] { 3, 4, -7, 1, 3, 3, 1, -4 }, 7);
 
             Console.ReadKey();
         }
